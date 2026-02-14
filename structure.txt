@@ -1,0 +1,65 @@
+src/
+└── app/
+    ├── core/                   
+    │   ├── api/
+    │   │   └── mangadex.api.ts
+    │   ├── services/
+    │   │   └── proxy.service.ts
+    │   ├── interceptors/
+    │   │   └── http.interceptor.ts
+    │   ├── guards/
+    │   └── core.providers.ts
+    │
+    ├── layout/                 
+    │   ├── header/
+    │   ├── footer/
+    │   └── layout.component.ts
+    │
+    ├── pages/               
+    │   ├── home/
+    │   │   ├── home.page.ts
+    │   │   ├── home.page.html
+    │   │   ├── home.page.css
+    │   │   └── sections/
+    │   │       ├── updated-recently/
+    │   │       ├── popular/
+    │   │       └── discover/
+    │   │
+    │   ├── manga/
+    │   │   ├── manga-list/
+    │   │   ├── manga-detail/
+    │   │   └── manga.routes.ts
+    │   │
+    │   ├── reader/
+    │   │   └── reader.page.ts    
+    │   │
+    │   └── library/
+    │
+    ├── shared/                
+    │   ├── components/
+    │   │   ├── manga-card/
+    │   │   ├── slider/
+    │   │   └── empty-state/
+    │   ├── directives/
+    │   ├── pipes/
+    │   └── utils/
+    │
+    ├── assets/
+    │   ├── images/
+    │   └── sounds/
+    │       └── click.mp3
+    │
+    ├── app.routes.ts
+    └── app.component.ts
+
+
+1️⃣ ⭐ Top Rated
+/manga?order[rating]=desc&limit=20
+
+2️⃣ 🆕 New Releases
+/manga?order[createdAt]=desc&limit=20
+
+3️⃣ 📚 Completed Series
+/manga?status[]=completed&order[followedCount]=desc
+
+/manga?publicationDemographic[]=shounen&order[followedCount]=desc

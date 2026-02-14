@@ -1,0 +1,21 @@
+<div [class]="sizeClass()" class="glass border-2 rounded-3xl flex overflow-hidden">
+    <div class="h-full w-full lg:w-25 cursor-pointer relative">
+        <img loading="lazy" class="size-full object-cover" [src]="fileUrl()" alt="cover">
+        <div class="absolute w-full bottom-0 left-0 bg-[#000000d2]  pb-4 pt-2 ps-2 lg:hidden">
+            <h2 class="line-clamp-1 text-[11px]">{{mangaTitle}}</h2>
+        </div>
+    </div>
+    <!-- desktop detail -->
+    <div class="p-3 w-[calc(100%-100px)] select-none lg:block hidden">
+        <h2 class="font-bold text-[14px] line-clamp-1 cursor-pointer">{{mangaTitle}}</h2>
+        <h3 class="text-[12px] font-semibold mt-1">Description:</h3>
+        <p class="line-clamp-5 text-[10px] mt-1">{{manga()?.attributes?.description?.['en'] ?? 'No description available' }}</p>
+        <div class="grid grid-cols-2 gap-2 mt-2">
+            @for (tag of tags; track $index) {
+                <div class="flex justify-center glass text-[10px] font-semibold rounded-full px-2 py-1 mt-2">
+                    <span class="line-clamp-1">{{tag.attributes.name['en']}}</span>
+                </div>
+            }
+        </div>
+    </div>
+</div>

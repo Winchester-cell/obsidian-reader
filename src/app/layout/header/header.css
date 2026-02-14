@@ -1,0 +1,10 @@
+.desktopLi {
+    cursor: pointer;
+    transition-property: color, transform;
+    transition-duration: 500ms;
+}
+
+.desktopLi:hover {
+    color: var(--hover-color);
+    transform: scale(1.1) translateY(-2px);
+}

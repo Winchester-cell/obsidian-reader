@@ -1,0 +1,42 @@
+<header class="border-b-2 glass">
+    <nav class="container flex items-center justify-between px-11 py-5">
+        <!-- logo temp placeholder -->
+        <h2 class="lg:w-full text-2xl font-bold">Obsidian Reader</h2>
+        <!-- nav links desktop -->
+        <ul class="hidden w-full lg:flex items-center justify-center gap-5">
+            @for (item of navLinks(); track $index) {
+            <li class="desktopLi">
+                <a routerLinkActive="text-teal-500" [routerLink]="item.url">{{ item.label }}</a>
+            </li>
+            }
+        </ul>
+        <!-- hamburger button -->
+        <button (click)="openMenu()" class="lg:hidden mt-1">
+            <hamburger-button />
+        </button>
+        <!-- searchBar -->
+        <div class="hidden lg:block w-full">
+
+        </div>
+    </nav>
+</header>
+
+
+<!-- nav links mobile -->
+<div [class]="`${isOpen() ? 'translate-x-0' : '-translate-x-full'}`"
+    class="lg:hidden w-70 bg-zinc-900 h-dvh fixed top-0 left-0 z-20 duration-300 transition-[translate] p-5">
+    <!-- logo -->
+    <h2 class="w-full text-2xl font-bold border-b-2 pb-5 mb-5 border-gray-500">Obsidian Reader</h2>
+    <!-- links -->
+    <ul class="w-full flex flex-col justify-center gap-5 ps-3">
+        @for (item of navLinks(); track $index) {
+        <li>
+            <a routerLinkActive="text-teal-500" [routerLink]="item.url">{{ item.label }}</a>
+        </li>
+        }
+    </ul>
+</div>
+<!-- close overlay -->
+@if (isOpen()) {
+<div (click)="closeMenu()" class="lg:hidden fixed w-dvw h-dvh top-0 left-0 bg-black/60 z-10"></div>
+}

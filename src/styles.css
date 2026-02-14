@@ -1,3 +1,43 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --text-color: #d1d5dc;
+    --hover-color: #00bba7;
+    --text-alt-color: #99a1af;
+}
 
 @import "tailwindcss";
+
+body {
+    color: var(--text-color);
+    background-image: url('/webBG.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.container {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button {
+    cursor: pointer;
+}
+
+.glass {
+    border-color: #ffffff22;
+    background-color: #ffffff0e;
+    backdrop-filter: blur(4px);
+}
+
+swiper-container::part(button-next),
+swiper-container::part(button-prev) {
+    color: whitesmoke;
+    padding: 7px;
+    backdrop-filter: blur(5px);
+    background-color: #ffffff0e;
+    border: solid 2px #ffffff22;
+    width: 15px;
+    height: 15px;
+    border-radius: 9999px;
+}

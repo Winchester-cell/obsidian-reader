@@ -1,0 +1,49 @@
+import { Component, inject, input, OnInit, signal } from '@angular/core';
+import { MangaItem } from '../../../models/magna';
+import { MangaServices } from '../../../core/api/manga-services';
+
+@Component({
+  selector: 'app-manga-slide-card',
+  imports: [],
+  templateUrl: './manga-slide-card.html',
+  styleUrl: './manga-slide-card.css',
+})
+export class MangaSlideCard implements OnInit {
+
+  sizeClass = input<string>('')
+  manga = input<MangaItem>()
+  mangaServices = inject(MangaServices)
+
+  fileUrl = signal<string>('')
+
+  get mangaTitle() {
+
+    const titles = this.manga()?.attributes.title
+
+    if (!titles) return 'No title'
+
+    if (titles['en']) return titles['en']
+
+    const firstKey = Object.keys(titles)[0]
+
+    return titles[firstKey]
+
+  }
+
+  get tags () {
+    const tags = this.manga()?.attributes.tags || []
+    return tags.slice(0, 2)
+  }
+
+  ngOnInit() {
+    const coverID = this.manga()?.relationships.find((rel) => rel.type === 'cover_art')?.id || ''
+    const proxyAddres = `https://img-proxy-five.vercel.app/image-proxy?quality=10&url=`
+    this.mangaServices.getCover(coverID).subscribe({
+      next: (data) => {
+        this.fileUrl.set(`${proxyAddres}https://uploads.mangadex.org/covers/${this.manga()?.id}/${data.data.attributes.fileName}` || '')
+      }
+    })
+  }
+
+
+}
