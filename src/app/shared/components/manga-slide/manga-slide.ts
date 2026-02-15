@@ -20,19 +20,33 @@ export class MangaSlide implements OnInit {
 
   options = input<SlideSectionsConfig>()
 
-  ngOnInit() {
+  isLoading = signal(false)
+  isError = signal(false)
+
+  getMangas() {
+
+    this.isLoading.set(true)
+
     this.mangaservices.getMangas(0, 20, this.options()?.queryOption)
       .pipe(
         catchError((err) => {
           console.log(err)
+          this.isError.set(true)
+          this.isLoading.set(false)
           return []
         })
       )
       .subscribe({
         next: (data) => {
           this.mangas.set(data.data)
+          this.isLoading.set(false)
+          this.isError.set(false)
         }
       })
+  }
+
+  ngOnInit() {
+    this.getMangas()
   }
 
 }

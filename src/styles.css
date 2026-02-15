@@ -15,6 +15,12 @@ body {
     background-size: cover;
 }
 
+app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100dvh;
+}
+
 .container {
     margin-left: auto;
     margin-right: auto;
@@ -27,17 +33,53 @@ button {
 .glass {
     border-color: #ffffff22;
     background-color: #ffffff0e;
-    backdrop-filter: blur(4px);
 }
 
 swiper-container::part(button-next),
 swiper-container::part(button-prev) {
     color: whitesmoke;
     padding: 7px;
-    backdrop-filter: blur(5px);
-    background-color: #ffffff0e;
-    border: solid 2px #ffffff22;
+    /* backdrop-filter: blur(5px); */
+    background-color: #000000a8;
+    border: solid 2px #ffffffa0;
     width: 15px;
     height: 15px;
     border-radius: 9999px;
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 40px;
+    aspect-ratio: 1;
+    display: grid;
+    color: var(--text-alt-color);
+    -webkit-mask: radial-gradient(circle 5px, #0000 90%, #000);
+    animation: l3 1.5s infinite linear;
+}
+
+.loader:before,
+.loader:after {
+    content: "";
+    grid-area: 1/1;
+    background:
+        radial-gradient(farthest-side at bottom left, currentColor 94%, #0000) top left,
+        radial-gradient(farthest-side at top right, currentColor 94%, #0000) bottom right;
+    background-size: 63% 50%;
+    background-repeat: no-repeat;
+    -webkit-mask:
+        radial-gradient(65% 110% at bottom left, #0000 94%, #000) top left,
+        radial-gradient(65% 110% at top right, #0000 94%, #000) bottom right;
+    -webkit-mask-size: 62% 50%;
+    -webkit-mask-repeat: no-repeat;
+}
+
+.loader:after {
+    transform: rotate(90deg);
+}
+
+@keyframes l3 {
+    100% {
+        transform: rotate(1turn)
+    }
 }

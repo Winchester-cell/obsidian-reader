@@ -1,4 +1,4 @@
-<header class="border-b-2 glass">
+<header class="border-b-2 glass backdrop-blur-xs">
     <nav class="container flex items-center justify-between px-11 py-5">
         <!-- logo temp placeholder -->
         <h2 class="lg:w-full text-2xl font-bold">Obsidian Reader</h2>
@@ -6,7 +6,8 @@
         <ul class="hidden w-full lg:flex items-center justify-center gap-5">
             @for (item of navLinks(); track $index) {
             <li class="desktopLi">
-                <a routerLinkActive="text-teal-500" [routerLink]="item.url">{{ item.label }}</a>
+                <a routerLinkActive="text-teal-500 font-bold" [routerLinkActiveOptions]="{exact: item.url === '/'}"
+                    [routerLink]="item.url">{{ item.label }}</a>
             </li>
             }
         </ul>
@@ -31,7 +32,8 @@
     <ul class="w-full flex flex-col justify-center gap-5 ps-3">
         @for (item of navLinks(); track $index) {
         <li>
-            <a routerLinkActive="text-teal-500" [routerLink]="item.url">{{ item.label }}</a>
+            <a [routerLinkActive]="['text-teal-500']" [routerLinkActiveOptions]="{exact: item.url === '/'}"
+                [routerLink]="item.url">{{ item.label }}</a>
         </li>
         }
     </ul>

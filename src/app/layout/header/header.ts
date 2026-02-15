@@ -1,6 +1,7 @@
-import { Component, ElementRef, signal, ViewChild } from '@angular/core';
-import { RouterLink, RouterLinkActive } from "@angular/router";
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { NavigationEnd, Router, RouterLink, RouterLinkActive } from "@angular/router";
 import { HamburgerButton } from '../../shared/components/hamburger-button/hamburger-button';
+import { filter } from 'rxjs';
 
 interface NavLinks {
   label: string
@@ -13,15 +14,28 @@ interface NavLinks {
   templateUrl: './header.html',
   styleUrl: './header.css',
 })
-export class Header {
+export class Header implements OnInit {
 
   isOpen = signal(false)
+
+
+  router = inject(Router)
+
+  ngOnInit() {
+
+    this.router.events
+      .pipe(filter(event => event instanceof NavigationEnd))
+      .subscribe(() => {
+        this.isOpen.set(false)
+      })
+  }
+
 
   openMenu() {
     this.isOpen.set(true)
   }
 
-  closeMenu(){
+  closeMenu() {
     this.isOpen.set(false)
   }
 
