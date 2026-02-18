@@ -1,0 +1,18 @@
+[build]
+  # مسیر خروجی Angular که Netlify میخونه
+  publish = "dist/obsidian-reader/browser"
+  command = "ng build --prod"
+
+# --- API / Edge Functions ---
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+  force = true
+
+# --- تمام مسیرهای SPA (Angular dynamic routing) ---
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+  force = true
