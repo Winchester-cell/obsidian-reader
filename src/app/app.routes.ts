@@ -11,7 +11,7 @@ export const routes: Routes = [
     },
     {
         path: 'manga/:id',
-        component: Manga
+        component: Manga,
     },
     {
         path: 'library',

@@ -4,5 +4,10 @@ export const serverRoutes: ServerRoute[] = [
   {
     path: '**',
     renderMode: RenderMode.Prerender
+  },
+  {
+    path: 'manga/:id',
+    renderMode: RenderMode.Server
   }
+
 ];
