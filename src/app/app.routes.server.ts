@@ -2,12 +2,12 @@ import { RenderMode, ServerRoute } from '@angular/ssr';
 
 export const serverRoutes: ServerRoute[] = [
   {
+    path: 'manga/:id',
+    renderMode: RenderMode.Server
+  },
+  {
     path: '**',
     renderMode: RenderMode.Prerender
   },
-  {
-    path: 'manga/:id',
-    renderMode: RenderMode.Server
-  }
 
 ];
