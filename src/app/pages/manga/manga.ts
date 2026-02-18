@@ -50,9 +50,9 @@ export class Manga implements OnInit {
     this.isChaptersOpen.set(false)
   }
 
-  myMessage() {
-    alert('This feature is not implemented yet');
-  }
+  // myMessage() {
+  //   alert('This feature is not implemented yet');
+  // }
 
   changeLang(event: any) {
     this.mangaStore.getChapters(this.mangaStore.manga()?.id as string  , event.target.value )

@@ -7,7 +7,7 @@ export const serverRoutes: ServerRoute[] = [
   },
   {
     path: 'manga/:id',
-    renderMode: RenderMode.Client
+    renderMode: RenderMode.Server
   }
 
 ];
