@@ -1,12 +1,17 @@
 import { Component, signal } from '@angular/core';
 import { MangaSlide } from '../../shared/components/manga-slide/manga-slide';
 import { Footer } from '../../shared/components/footer/footer';
+import { register } from 'swiper/element/bundle';
 
 export interface SlideSectionsConfig {
   headTitle: string,
   imgSrc: string,
   queryOption: string,
 }
+
+
+register();
+
 
 @Component({
   selector: 'app-home',
