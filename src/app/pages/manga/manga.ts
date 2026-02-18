@@ -1,8 +1,4 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { MangaStore } from '../../core/manga-page-service/manga-store';
-import { RatingColor } from '../../directives/rating-color';
-import { languages } from '../../content/language-options';
+import { Component} from '@angular/core';
 
 @Component({
   selector: 'app-manga',
@@ -12,60 +8,5 @@ import { languages } from '../../content/language-options';
   standalone: true
 })
 export class Manga {
-
-  // activatedRoute = inject(ActivatedRoute);
-  // mangaStore = inject(MangaStore);
-  // isDescExtend = signal(false)
-  // isChaptersOpen = signal(false)
-  // languages = signal(languages)
-
-  // get mangaTitle() {
-
-  //   const titles = this.mangaStore.manga()?.attributes.title
-
-  //   if (!titles) return 'No title'
-
-  //   if (titles['en']) return titles['en']
-
-  //   const firstKey = Object.keys(titles)[0]
-
-  //   return titles[firstKey]
-
-  // }
-
-  // get tags() {
-  //   const tags = this.mangaStore.manga()?.attributes.tags || []
-  //   return tags.slice(0, 6)
-  // }
-
-  // toggleDesc() {
-  //   this.isDescExtend.update(value => !value)
-  // }
-
-  // openChapters() {
-  //   this.isChaptersOpen.set(true)
-  // }
-
-  // closeChapters() {
-  //   this.isChaptersOpen.set(false)
-  // }
-
-  // // myMessage() {
-  // //   alert('This feature is not implemented yet');
-  // // }
-
-  // changeLang(event: any) {
-  //   this.mangaStore.getChapters(this.mangaStore.manga()?.id as string  , event.target.value )
-  // }
-
-  // runService() {
-  //   this.activatedRoute.params.subscribe(params => {
-  //     this.mangaStore.loadManga(params['id']);
-  //   });
-  // }
-
-  // ngOnInit() {
-  //   this.runService();
-  // }
 
 }
