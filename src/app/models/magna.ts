@@ -44,6 +44,13 @@ export interface MangaItem {
 export interface MangaResponse {
   result: string;
   response: string;
+  data: MangaItem;
+}
+
+
+export interface MangasResponse {
+  result: string;
+  response: string;
   data: MangaItem[];
   limit: number;
   offset: number;

@@ -1,10 +1,11 @@
 import { Component, inject, input, OnInit, signal } from '@angular/core';
 import { MangaItem } from '../../../models/magna';
 import { MangaServices } from '../../../core/api/manga-services';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-manga-slide-card',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './manga-slide-card.html',
   styleUrl: './manga-slide-card.css',
 })

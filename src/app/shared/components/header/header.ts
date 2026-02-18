@@ -1,6 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { NavigationEnd, Router, RouterLink, RouterLinkActive } from "@angular/router";
-import { HamburgerButton } from '../../shared/components/hamburger-button/hamburger-button';
+import { HamburgerButton } from '../hamburger-button/hamburger-button';
 import { filter } from 'rxjs';
 
 interface NavLinks {
