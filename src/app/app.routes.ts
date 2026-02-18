@@ -10,7 +10,7 @@ export const routes: Routes = [
         component: Home,
     },
     {
-        path: 'manga',
+        path: 'manga/:id',
         component: Manga,
     },
     {
